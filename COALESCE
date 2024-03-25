@@ -1,0 +1,8 @@
+COALESCE (MPK,first_value(MPK) ignore nulls OVER (ORDER BY CZAS_MODYF)) AS MPK
+
+
+-- jeżeli jest null, bierze pierwszą niepustą wartość z wierszy powyżej
+
+COALESCE (MPK, LAG(MPK) OVER (ORDER BY NR_OSOBOWY)
+
+-- jeżeli jest null, bierze wartość z wiersza powyżej
